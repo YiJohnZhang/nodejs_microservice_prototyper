@@ -23,8 +23,8 @@ There needs to be "C5": Consumer (End-User), Context, Container, Component, Code
 
 Motivation for this:
 - flashbacks of that disastrous attempt at TDD
+- allowing a software engineer to be fully capable of designing a web app w/ a spreadsheet sounds pretty cool + they could already handle the code => a software engineer can work on the **WHOLE** software system: both design and development. in terms of skill specialization, probably the only necessary roles will be ui/ux designer and an intermediary between the client and development team. 
 - supreme laziness.
-- make a software engie capable of designing a web app w/ a spreadsheet sounds pretty cool + they could handle the code => a software engie can design both the whole software system.
 
 implementaiotn ideas:
 - adjacency matrix, 0 => no rel (no self rel) & int for edge to map to a text description.
@@ -37,6 +37,14 @@ The idea is a library that takes JSON input to:
 - build the database seed
 - build the corresponding query group(s)
 - compatible with low-level pre-implemented query builder (extendable so that users can build business-logic query.)
+
+## later features:
+- gui interface to edit multiple files at once.
+- csv parser + `file-loader` that allows the following syntax
+```js
+import featureContext from './appName_featureName.csv';
+// ...
+```
 
 i.e.
 ```js
@@ -74,3 +82,15 @@ automating low-level parts of a web application:
 
 Other ideas:
 - a port of flask-wtform that is compatible with React 18+ and bootstrap
+
+## some after-thoughts of using csv:
+- very easy for git (plain-text, no encoding)
+- how do I "import" related files? i.e. list dependencies?
+	- c++: `#include`cpp
+	- javascript: `import-export`js
+	- nodejs env: `require`js
+	- py: `import`py
+	- reactjs: see js but w/ webpack can actually import images, css and js as objects
+		- note: the [`file-loader`](https://v4.webpack.js.org/loaders/file-loader/) [library is responsible for this behavior in webpack (stackoverflow)](https://stackoverflow.com/a/66366173)
+		- if i had to guess, the image object imported by web-loader is just a reference; unlikely it is buffered.
+- 
